@@ -103,7 +103,7 @@ const ThaiPopover: React.FC<ThaiPopoverProps> = ({
         <p style={{ fontSize: "30%", textAlign: "left", margin: "5px 0" }}>
           Transliteration:
         </p>
-        {loading && data !== null ? (
+        {loading && data === null ? (
           <Spinner />
         ) : (
           <p style={{ margin: 0, fontSize: "80%" }}>{data}</p>
