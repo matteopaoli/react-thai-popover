@@ -1,50 +1,79 @@
-# React + TypeScript + Vite
+# ThaiPopover
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React component that displays a transliteration popover for **Thai text** when the user hovers over it. It fetches transliteration data from an external API and displays it in a popover.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To install the component, run:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install thai-popover
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Usage
+
+Import the `ThaiPopover` component and use it within your React application:
 
 ```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+import React from 'react';
+import ThaiPopover from 'thai-popover';
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+function App() {
+  return (
+    <div>
+      <ThaiPopover bg="#e0f7fa">สวัสดี</ThaiPopover>
+    </div>
+  );
+}
+
+export default App;
 ```
+
+### Props
+
+| Prop       | Type   | Default       | Description                                                           |
+|------------|--------|---------------|-----------------------------------------------------------------------|
+| `children` | string | **Required**  | The Thai text to be displayed. This text will be transliterated when hovered over. |
+| `bg`       | string | `"transparent"` | Background color of the text container. Accepts any valid CSS color value. |
+
+### Example
+
+```js
+import React from 'react';
+import ThaiPopover from 'thai-popover';
+
+function App() {
+  return (
+    <div style={{ padding: '20px' }}>
+      <h1>Hover over the text below:</h1>
+      <ThaiPopover bg="#f9f9f9">
+        สวัสดี
+      </ThaiPopover>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Description
+
+`ThaiPopover` displays a transliteration of Thai text when hovered over. The component sends a request to an external API to fetch the transliteration of the provided text. While the data is being fetched, a spinner is displayed. If the request fails, an error message is shown instead.
+
+### Styling
+
+- The `bg` prop allows you to customize the background color of the text container.
+- The popover has a smooth transition when it appears and disappears, making the experience more interactive.
+
+### API
+
+The component makes a `POST` request to `https://getmatke.pythonanywhere.com/api/g2p` to fetch transliteration data. The response is displayed in the popover under the label "Transliteration".
+
+### Notes
+
+- Make sure to handle any API rate limits or potential downtime, as the component relies on an external service for transliteration.
+- The popover adjusts its height dynamically based on the content, ensuring a smooth transition.
+
+### License
+
+MIT

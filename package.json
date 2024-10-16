@@ -1,6 +1,6 @@
 {
   "name": "react-thai-popover",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "./dist/react-thai-popover.umd.js",
   "module": "./dist/react-thai-popover.es.js",
