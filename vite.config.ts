@@ -2,6 +2,7 @@ import path from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
+import preserveDirectives from 'rollup-preserve-directives';
 
 export default defineConfig({
   build: {
@@ -17,7 +18,8 @@ export default defineConfig({
           react: 'React',
           "react-dom": "ReactDOM"
         }
-      }
+      },
+      plugins: [preserveDirectives()]
     }
   },
   plugins: [react(), dts({
