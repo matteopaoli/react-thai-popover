@@ -1,4 +1,4 @@
-# ThaiPopover
+# react-thai-popover
 
 A React component that displays a transliteration popover for **Thai text** when the user hovers over it. It fetches transliteration data from an external API and displays it in a popover.
 
@@ -7,16 +7,16 @@ A React component that displays a transliteration popover for **Thai text** when
 To install the component, run:
 
 ```bash
-npm install thai-popover
+npm install react-thai-popover
 ```
 
 ## Usage
 
-Import the `ThaiPopover` component and use it within your React application:
+Import the `react-thai-popover` component and use it within your React application:
 
 ```js
 import React from 'react';
-import ThaiPopover from 'thai-popover';
+import ThaiPopover from 'react-thai-popover';
 
 function App() {
   return (
@@ -40,7 +40,7 @@ export default App;
 
 ```js
 import React from 'react';
-import ThaiPopover from 'thai-popover';
+import ThaiPopover from 'react-thai-popover';
 
 function App() {
   return (
@@ -58,7 +58,7 @@ export default App;
 
 ### Description
 
-`ThaiPopover` displays a transliteration of Thai text when hovered over. The component sends a request to an external API to fetch the transliteration of the provided text. While the data is being fetched, a spinner is displayed. If the request fails, an error message is shown instead.
+`react-thai-popover` displays a transliteration of Thai text when hovered over. The component sends a request to an external API to fetch the transliteration of the provided text. While the data is being fetched, a spinner is displayed. If the request fails, an error message is shown instead.
 
 ### Styling
 
