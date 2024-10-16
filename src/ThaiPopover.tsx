@@ -63,7 +63,7 @@ const ThaiPopover: React.FC<ThaiPopoverProps> = ({
   const textColor = "black";
 
   return (
-    <div
+    <span
       style={{
         display: "inline",
         position: "relative",
@@ -78,7 +78,7 @@ const ThaiPopover: React.FC<ThaiPopoverProps> = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       {children}
-      <div
+      <span
         ref={popoverRef}
         style={{
           position: "absolute",
@@ -108,8 +108,8 @@ const ThaiPopover: React.FC<ThaiPopoverProps> = ({
         ) : (
           <p style={{ margin: 0, fontSize: "80%" }}>{data}</p>
         )}
-      </div>
-    </div>
+      </span>
+    </span>
   );
 };
 
