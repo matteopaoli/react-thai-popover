@@ -65,7 +65,7 @@ const ThaiPopover: React.FC<ThaiPopoverProps> = ({
   return (
     <div
       style={{
-        display: "",
+        display: "inline",
         position: "relative",
         cursor: "pointer",
         padding: "4px",
